@@ -6,20 +6,20 @@
 
 ## Key Features
 
-**Binary Image Classification** - CNG vs Bus  
-**Law Enforcement Use Case** - Ideal for surveillance camera feeds  
-**Built for Extensibility** - Future-ready for live video input & additional vehicle classes  
-**Streamlit Frontend** - Upload images & receive instant classification  
-**Model Explainability** - Ready for integration with Grad-CAM & attention visualization
+- **Binary Image Classification** - CNG vs Bus  
+- **Law Enforcement Use Case** - Ideal for surveillance camera feeds  
+- **Built for Extensibility** - Future-ready for live video input & additional vehicle classes  
+- **Streamlit Frontend** - Upload images & receive instant classification  
+- **Model Explainability** - Ready for integration with Grad-CAM & attention visualization
 
 ---
 
 ## Use Cases
 
-**Law Enforcement**: Monitor restricted lanes and catch violations (e.g. non-CNGs in CNG-only lanes)
-**Environmental Compliance**: Classify cleaner-energy vehicles on the road
-**Transit Analytics**: Track proportions of buses vs small-scale public vehicles
-**Smart City Infrastructure**: Feed traffic insights into central dashboards
+- **Law Enforcement**: Monitor restricted lanes and catch violations (e.g. non-CNGs in CNG-only lanes)
+- **Environmental Compliance**: Classify cleaner-energy vehicles on the road
+- **Transit Analytics**: Track proportions of buses vs small-scale public vehicles
+- **Smart City Infrastructure**: Feed traffic insights into central dashboards
 ---
 ## Tech Stack
 
