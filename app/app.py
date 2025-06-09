@@ -16,21 +16,18 @@ transform = transforms.Compose([
 ])
 
 
-st.title("Bus vs. Napep (Tricycle) Image Classifier")
+st.title("Bus vs. Car Image Classifier")
 st.write("Upload an image, and I'll predict whether it's a Bus or a Tricycle (Napep)!")
 
+uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "png", "jpeg"])
 
-
-uploaded = st.file_uploader("Choose an image...", type=["jpg", "png", "jpeg"])
-
-
-if uploaded:
-    image = Image.open(uploaded)
+if uploaded_file:
+    image = Image.open(uploaded_file)
     st.image(image, caption="Uploaded Image", width=250)
-
 
     
     input_tensor = transform(image).unsqueeze(0)
+
     
     with torch.no_grad():
         output = model(input_tensor)
