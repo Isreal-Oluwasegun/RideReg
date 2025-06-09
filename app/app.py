@@ -23,9 +23,11 @@ st.write("Upload an image, and I'll predict whether it's a Bus or a Tricycle (Na
 
 uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "png", "jpeg"])
 
-if uploaded_file:
+
+if uploaded_file is not None:
     image = Image.open(uploaded_file)
     st.image(image, caption="Uploaded Image", width=250)
+
 
     
     input_tensor = transform(image).unsqueeze(0)
