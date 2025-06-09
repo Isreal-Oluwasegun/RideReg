@@ -21,11 +21,11 @@ st.write("Upload an image, and I'll predict whether it's a Bus or a Tricycle (Na
 
 
 
-uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "png", "jpeg"])
+uploaded = st.file_uploader("Choose an image...", type=["jpg", "png", "jpeg"])
 
 
-if uploaded_file:
-    image = Image.open(uploaded_file)
+if uploaded:
+    image = Image.open(uploaded)
     st.image(image, caption="Uploaded Image", width=250)
 
 
