@@ -31,9 +31,15 @@ if uploaded_file is not None:
 
     
     with torch.no_grad():
-        output = model(input_tensor)
-        predicted_class = torch.argmax(output, dim=1).item()
-        predicted_name = CLASS_NAMES[predicted_class]  # Match class index with label
+        output = model(input_tensor)            # One value (logit)
+        prob = torch.sigmoid(output).item()    # Converts to probability between 0 and 1
+        if prob > 0.85:
+            print("Predicted: Tricycle")
+        elif prob < 0.15:
+            print("Predicted: Bus")
+        else:
+            print("Unknown or uncertain prediction")
 
-    st.write(f"**Predicted Vehicle:** {predicted_name}")
+
+
 
