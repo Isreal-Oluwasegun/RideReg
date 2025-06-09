@@ -3,12 +3,13 @@ import torch
 import torchvision.transforms as transforms
 import numpy as np
 from PIL import Image
+from model_structure import model
+
 
 
 CLASS_NAMES = ["Bus", "Cng"]
 
 import torch
-from structure import model
 transform = transforms.Compose([
     transforms.Resize((224, 224)), 
     transforms.ToTensor(),
