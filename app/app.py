@@ -17,7 +17,7 @@ transform = transforms.Compose([
 
 
 st.title("Bus vs. Car Image Classifier")
-st.write("Upload an image, and I'll predict whether it's a bus or a car!")
+st.write("Upload an image, and I'll predict whether it's a Bus or a Tricycle (Napep)!")
 
 uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "png", "jpeg"])
 
