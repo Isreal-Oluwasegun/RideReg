@@ -19,14 +19,6 @@ transform = transforms.Compose([
 st.title("Bus vs. Napep (Tricycle) Image Classifier")
 st.write("Upload an image, and I'll predict whether it's a Bus or a Tricycle (Napep)!")
 
-col1, col2  = st.columns(2)
-with col1:
-    image =  Image.open("example_image/R.jpg")
-    st.image(image, caption="Example: Napep", width=200)
-    
-with  col2:
-    image =  Image.open("example_image/lnhimg.jpg")
-    st.image(image, caption="Example: Bus", width=200)
 
 
 uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "png", "jpeg"])
