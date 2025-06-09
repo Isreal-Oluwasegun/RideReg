@@ -24,9 +24,9 @@ uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "png", "jpeg
 col1, col2  = st.columns(2)
 
 with col1:
-    st.image("examples/R.jpg", caption="Example: Napep", width=200)
+    st.image("R.jpg", caption="Example: Napep", width=200)
 with  col2:
-    st.image("examples/lnhimg.jpg", caption="Example: Bus", width=200)
+    st.image("lnhimg.jpg", caption="Example: Bus", width=200)
 
 if uploaded_file:
     image = Image.open(uploaded_file)
