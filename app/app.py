@@ -26,7 +26,7 @@ with col1:
     
 with  col2:
     img2 =  Image.open("example_image/lnhimg.jpg")
-    st.image("", caption="Example: Bus", width=200)
+    st.image(img2, caption="Example: Bus", width=200)
 
 
 uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "png", "jpeg"])
