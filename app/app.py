@@ -21,6 +21,13 @@ st.write("Upload an image, and I'll predict whether it's a Bus or a Tricycle (Na
 
 uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "png", "jpeg"])
 
+col1, col2  = st.columns(2)
+
+with col1:
+    st.image("examples/R.jpg", caption="Example: Napep", width=200)
+with  col2:
+    st.image("examples/lnhimg.jpg", caption="Example: Bus", width=200)
+
 if uploaded_file:
     image = Image.open(uploaded_file)
     st.image(image, caption="Uploaded Image", width=250)
@@ -28,7 +35,6 @@ if uploaded_file:
     
     input_tensor = transform(image).unsqueeze(0)
 
-    
     with torch.no_grad():
         output = model(input_tensor)
         predicted_class = torch.argmax(output, dim=1).item()
