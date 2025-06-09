@@ -19,8 +19,17 @@ transform = transforms.Compose([
 st.title("Bus vs. Napep (Tricycle) Image Classifier")
 st.write("Upload an image, and I'll predict whether it's a Bus or a Tricycle (Napep)!")
 
-uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "png", "jpeg"])
+col1, col2  = st.columns(2)
+with col1:
+    img1 =  Image.open("examples/R.jpg")
+    st.image(img1, caption="Example: Napep", width=200)
+    
+with  col2:
+    img2 =  Image.open("examples/lnhimg.jpg")
+    st.image("", caption="Example: Bus", width=200)
 
+
+uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "png", "jpeg"])
 
 if uploaded_file:
     image = Image.open(uploaded_file)
@@ -28,7 +37,7 @@ if uploaded_file:
 
     
     input_tensor = transform(image).unsqueeze(0)
-
+    
     with torch.no_grad():
         output = model(input_tensor)
         predicted_class = torch.argmax(output, dim=1).item()
