@@ -21,11 +21,11 @@ st.write("Upload an image, and I'll predict whether it's a Bus or a Tricycle (Na
 
 col1, col2  = st.columns(2)
 with col1:
-    img1 =  Image.open("examples/R.jpg")
+    img1 =  Image.open("example_image/R.jpg")
     st.image(img1, caption="Example: Napep", width=200)
     
 with  col2:
-    img2 =  Image.open("examples/lnhimg.jpg")
+    img2 =  Image.open("example_image/lnhimg.jpg")
     st.image("", caption="Example: Bus", width=200)
 
 
