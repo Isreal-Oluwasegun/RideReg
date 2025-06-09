@@ -9,16 +9,16 @@ from model_structure import model
 
 CLASS_NAMES = ["Bus", "Cng"]
 
-import torch
 transform = transforms.Compose([
-    transforms.Resize((224, 224)), 
+    transforms.Resize((224, 224)),  # Match model input size
     transforms.ToTensor(),
+    transforms.Normalize(mean=[0.5], std=[0.5])  # Normalize values to expected range
 ])
+
 
 
 st.title("Bus vs. Napep(Tricycle) Image Classifier")
 st.write("Upload an image, and I'll predict whether it's a Bus or a Tricycle (Napep)!")
-
 
 uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "png", "jpeg"])
 
@@ -31,15 +31,14 @@ if uploaded_file is not None:
 
     
     with torch.no_grad():
-        output = model(input_tensor)            # One value (logit)
-        prob = torch.sigmoid(output).item()    # Converts to probability between 0 and 1
-        if prob > 0.85:
-            print("Predicted: Tricycle")
-        elif prob < 0.15:
-            print("Predicted: Bus")
-        else:
-            print("Unknown or uncertain prediction")
+        output = model(input_tensor)
+        confidence_scores = torch.softmax(output, dim=1)  # Normalize outputs to confidence values
+        predicted_class = torch.argmax(output, dim=1).item()
+        predicted_name = CLASS_NAMES[predicted_class]  # Match class index with label
+        confidence = confidence_scores[0][predicted_class].item()
 
+    # Introduce an "Unknown" category for low-confidence predictions
+    if confidence < 0.7:  # Adjust threshold as needed
+        predicted_name = "Unknown"
 
-
-
+    st.write(f"**Predicted Vehicle:** {predicted_name} (Confidence: {confidence:.2f})")
